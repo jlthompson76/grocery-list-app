@@ -1,14 +1,19 @@
 ////////////// Part 1 /////////////////////
 /* 1.1) Link the CSS file by setting the href attribute of <link> */
 
+document.querySelector("link").href = "./styles.css";
 
 /* 1.2) Set the class of the image to "list-img" */
 
+document.querySelector("img").className = "list-img";
 
 /* 1.3) Set the classes of the inputs (buttons) to "btn" by using a loop */
 
-
-
+let buttons = document.querySelectorAll("input");
+console.log(buttons);
+for (i = 0; i < buttons.length; i++) {
+        buttons[i].className = "btn";
+}
 
 ////////////// Part 2 /////////////////////
 
