@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+</head>
+<body>
+    
+    <ul id="myList">
+        <li>Coffee</li>
+        <li>Tea</li>
+    </ul>
+    <div class="content">
+        <p>Click the button to append an item to the end of the list.</p>
+    </div>
+    
+    <button onclick="addNode()">Add</button>
+    <button onclick="removeNode()">Remove</button>
+
+    <script>
+        function addNode() {
+            let list = document.querySelector("#myList");
+
+            let element = document.createElement("li");
+            let textNode = document.createTextNode("Water");
+            element.appendChild(textNode);
+            list.appendChild(element);
+        }
+
+        function removeNode() {
+            let list = document.querySelector("#myList");
+            let listItems = document.querySelectorAll("li");
+            list.removeChild(listItems[0]);
+        }
+    </script>
+
+</body>
+</html>
