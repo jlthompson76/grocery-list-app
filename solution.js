@@ -9,9 +9,9 @@ document.querySelector(".header img").className = "list-img";
 
 /* 1.3) Set the classes of the inputs (buttons) to "btn" by using a loop */
 
-let buttons = document.querySelectorAll("input");
+let buttons = document.querySelectorAll(".btn-controls input");
 console.log(buttons);
-for (i = 0; i < buttons.length; i++) {
+for (let i = 0; i < buttons.length; i++) {
         buttons[i].className = "btn";
 }
 
@@ -19,7 +19,7 @@ for (i = 0; i < buttons.length; i++) {
 
 /* 2.1) grab the <ul> that we are going to append <li> nodes to and store it in a variable */
 
-let list = document.querySelectorAll("#grocery-list ul");
+let list = document.querySelector("#grocery-list");
 console.log(list);
 
 /* 2.2) When the user clicks the ADD button, ask them what item they need to add and then:
@@ -29,16 +29,17 @@ console.log(list);
         4. Add the li Element to the unordered list by appending it to the variable created in step 2.1 */
 
 function addItem() {
-        let item = prompt(`Please enter the item that you'd like to add to the list:`);
-        console.log(item);
+        console.log(`addItem function`);
+        let itemToAdd = prompt(`Please enter the item that you'd like to add to the list:`);
+        console.log(itemToAdd);
         let element = document.createElement("li");
         console.log(element);
-        let textNode = document.createTextNode(item);
+        // element.innerText = itemToAdd;
+        // line above is Ahmad's code from class demo
+        let textNode = document.createTextNode(itemToAdd);
         console.log(textNode);
         element.appendChild(textNode);
         list.appendChild(element);
-// Console error message for line 39:
-// Uncaught TypeError: list.appendChild is not a function at addItem
         console.log(list);
 }
 
@@ -48,10 +49,14 @@ function addItem() {
         3. Add the count to the page by setting the textContent of #item-count */
 
 function getTotal() {
+        console.log(`getTotal function`);
+        // document.querySelector(".total-area").getElementsByClassName.display = "block";
+        // line above is Ahmad's code from class demo
         let totalArea = document.querySelector("div .total-area");
         console.log(totalArea);
         totalArea.className = "total-area";
         let groceries = document.querySelectorAll("#grocery-list li");
+        console.log(groceries);
         let numberGroceries = groceries.length;
         document.getElementById("item-count").textContent = numberGroceries;
 }
@@ -61,16 +66,18 @@ function getTotal() {
     1. Remove the item from the list with removeChild by comparing the user's response to the textContent of each <li> */
 
 function removeItem() {
-        let itemToBeRemoved = prompt(`Please enter the item that you'd like to remove from thte list:`);
-        let list = document.querySelectorAll("#grocery-list ul");
+        console.log(`removeItem function`);
+        let itemToRemove = prompt(`Please enter the item that you'd like to remove from the list:`);
+        console.log(itemToRemove);
+        let list = document.querySelector("#grocery-list");
+        console.log(list);
         let groceries = document.querySelectorAll("#grocery-list li");
-        for (i = 0; i < groceries.length; i++) {
-             if (groceries[i].textContent === itemToBeRemoved) {
+        console.log(groceries);
+        for (let i = 0; i < groceries.length; i++) {
+             if (groceries[i].textContent === itemToRemove) {
+                // groceries[i].remove();
+                // line above is Ahmad's code from class demo
                 list.removeChild(groceries[i]);
-// Console error message for line 67:
-// Uncaught TypeError: list.removeChild is not a function at removeItem
-             } else {
-                break;
              }
         }
 }
